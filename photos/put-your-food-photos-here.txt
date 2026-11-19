@@ -1,0 +1,1 @@
+Food er chobi (jpg/png/webp) ei folder e rakhun, tarpor index.html er MENU list e image path din.

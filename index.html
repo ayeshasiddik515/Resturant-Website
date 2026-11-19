@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aizome | Japanese Kitchen</title>
+<meta name="description" content="Aizome is a Japanese kitchen serving sushi, ramen, donburi and tempura.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F2F6FB; --white:#FFFFFF; --ink:#0B1F3A; --muted:#4B5F7A; --line:#D5DFEC;
+  --navy:#0F2B4F; --navy-2:#17407A; --navy-3:#1F5190; --mist:#C9D8EC; --gold:#D6B36A; --edge:#6F88A8;
+  --serif:"Shippori Mincho",serif; --sans:Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--ground);line-height:1.5}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.85}
+button{font-family:inherit}
+h1,h2,h3{font-family:var(--serif);margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.section{padding:80px 0}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.label{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+h2{font-weight:700;font-size:38px;letter-spacing:.01em}
+
+/* Seigaiha wave pattern, used as the photo placeholder */
+.wave{background-color:var(--navy-2);background-size:80px 40px;
+background-image:
+radial-gradient(circle at 100% 150%,#17407A 24%,#1F5190 24%,#1F5190 28%,#17407A 28%,#17407A 36%,#1F5190 36%,#1F5190 40%,transparent 40%,transparent),
+radial-gradient(circle at 0 150%,#17407A 24%,#1F5190 24%,#1F5190 28%,#17407A 28%,#17407A 36%,#1F5190 36%,#1F5190 40%,transparent 40%,transparent),
+radial-gradient(circle at 50% 100%,#1F5190 10%,#17407A 10%,#17407A 23%,#1F5190 23%,#1F5190 30%,#17407A 30%,#17407A 43%,#1F5190 43%,#1F5190 50%,#17407A 50%,#17407A 63%,#1F5190 63%,#1F5190 70%,transparent 70%,transparent),
+radial-gradient(circle at 100% 50%,#1F5190 5%,#17407A 5%,#17407A 15%,#1F5190 15%,#1F5190 20%,#17407A 20%,#17407A 29%,#1F5190 29%,#1F5190 34%,#17407A 34%,#17407A 44%,#1F5190 44%,#1F5190 49%,transparent 49%,transparent),
+radial-gradient(circle at 0 50%,#1F5190 5%,#17407A 5%,#17407A 15%,#1F5190 15%,#1F5190 20%,#17407A 20%,#17407A 29%,#1F5190 29%,#1F5190 34%,#17407A 34%,#17407A 44%,#1F5190 44%,#1F5190 49%,transparent 49%,transparent)}
+.photo{position:relative;overflow:hidden}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;top:12px;left:12px;padding:3px 8px;border-radius:4px;background:var(--ink);color:var(--mist);font-size:12px}
+
+/* Header */
+header{background:var(--white);border-bottom:1px solid var(--line)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:12px;padding-bottom:12px}
+.brand{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.brand b{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:.02em}
+.brand span{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:0 24px}
+nav a{font-size:15px;font-weight:500;min-height:44px;display:inline-flex;align-items:center}
+nav a.cta{font-weight:600;padding:0 20px;border-radius:6px;background:var(--navy);color:var(--white)}
+
+/* Buttons */
+.btn{min-height:48px;padding:0 24px;border-radius:6px;display:inline-flex;align-items:center;font-weight:600;font-size:16px;border:1px solid transparent;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-line{border-color:var(--mist);color:var(--white)}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--white)}
+.hero .wrap{padding-top:64px;padding-bottom:64px;display:flex;flex-wrap:wrap;align-items:center;gap:48px}
+.hero-text{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.hero h1{font-weight:700;font-size:clamp(36px,5vw,54px);line-height:1.1;letter-spacing:.01em}
+.hero-sub{font-size:18px;color:var(--mist);max-width:460px}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.rating-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:15px;color:var(--mist)}
+.stars{color:var(--gold);letter-spacing:2px}
+.hero-card{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.hero-photo{height:420px;border-radius:12px}
+.hero-over{position:absolute;left:0;right:0;bottom:0;padding:48px 24px 20px;background:linear-gradient(to top,var(--ink) 20%,rgba(11,31,58,0));display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 20px}
+.hero-over .info{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:4px}
+.hero-over .name{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.2}
+.hero-over .desc{font-size:15px;color:var(--mist)}
+.price-badge{padding:8px 16px;border-radius:6px;background:var(--gold);color:var(--ink);font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
+.slides{display:flex;flex-wrap:wrap;gap:8px}
+.slide{flex:1 1 120px;min-width:0;min-height:48px;padding:6px 12px;border-radius:6px;cursor:pointer;text-align:left;display:flex;flex-direction:column;font-size:13px;border:1px solid #7C93B0;background:transparent;color:var(--mist)}
+.slide b{font-weight:600}
+.slide[aria-pressed="true"]{background:var(--white);border-color:var(--white);color:var(--ink)}
+.pause{flex:0 0 auto;min-height:48px;padding:0 14px;border-radius:6px;cursor:pointer;font-size:13px;border:1px solid #7C93B0;background:transparent;color:var(--mist)}
+
+/* Menu */
+.menu-head{display:flex;flex-direction:column;gap:8px;margin-bottom:32px}
+.menu-head p{color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.tab{min-height:44px;padding:0 20px;border-radius:6px;border:1px solid var(--edge);font-size:15px;font-weight:600;cursor:pointer;background:var(--white);color:var(--ink)}
+.tab[aria-pressed="true"]{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.grid{display:flex;flex-wrap:wrap;gap:16px}
+.card{flex:1 1 240px;min-width:0;background:var(--white);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card .photo{width:100%;aspect-ratio:4/3}
+.card .body{flex:1 1 auto;padding:16px 20px 20px;display:flex;flex-direction:column;gap:6px}
+.card h3{font-weight:700;font-size:20px;line-height:1.25}
+.card .d{font-size:14px;color:var(--muted)}
+.card .p{margin-top:auto;padding-top:8px;font-weight:700;font-size:18px;color:var(--navy-2);font-variant-numeric:tabular-nums}
+
+/* About */
+.about{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px}
+.about-art{flex:1 1 360px;min-width:0;height:340px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:96px;letter-spacing:.12em;padding-left:.12em;color:var(--white)}
+.about-text{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.about-text p{font-size:17px;color:var(--muted);max-width:520px}
+
+/* Reviews */
+.reviews{background:var(--navy);color:var(--white)}
+.reviews-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin-bottom:32px}
+.note{padding:4px 12px;border-radius:4px;background:var(--navy-2);color:var(--mist);font-size:13px}
+.reviews-body{display:flex;flex-wrap:wrap;align-items:flex-start;gap:32px 48px}
+.summary{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.avg{display:flex;align-items:baseline;gap:12px}
+.avg b{font-family:var(--serif);font-weight:700;font-size:72px;line-height:1;font-variant-numeric:tabular-nums}
+.avg span,.count{font-size:15px;color:var(--mist)}
+.summary .stars{font-size:22px;letter-spacing:3px}
+.dist{display:flex;flex-direction:column;gap:8px}
+.dist div{display:flex;align-items:center;gap:12px;font-size:14px;font-variant-numeric:tabular-nums;color:var(--mist)}
+.dist .n{width:14px;text-align:right}
+.dist .c{width:28px}
+.track{flex:1 1 auto;min-width:0;height:8px;border-radius:4px;background:#24467A;overflow:hidden}
+.track i{display:block;height:100%;background:var(--gold)}
+.list{flex:2 1 520px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.review{background:var(--navy-2);border:1px solid #2A5189;border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:10px}
+.review p{font-size:16px}
+.review .who{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:14px;color:var(--mist)}
+.review .who b{font-weight:600}
+
+/* Visit */
+.visit{background:var(--navy-2);color:var(--white)}
+.visit .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:40px 64px}
+.visit-cta{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.visit-cta p{font-size:17px;color:#D6E2F3;max-width:420px}
+.visit-info{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.visit-info div{display:flex;flex-direction:column;gap:2px}
+.visit-info span:last-child{font-size:17px}
+
+footer{background:var(--ink);color:var(--mist)}
+footer .wrap{padding-top:24px;padding-bottom:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}
+footer small{font-size:14px}
+footer nav a{font-size:14px}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top"><b>Aizome</b><span>藍染</span></a>
+    <nav aria-label="Main">
+      <a href="#top">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+      <a class="cta" href="#visit">Book a Table</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="eyebrow">Japanese kitchen · Dine in · Takeaway</p>
+      <h1>Japanese food, made with patience.</h1>
+      <p class="hero-sub">[One line about your restaurant: the area, and what guests come back for.]</p>
+      <div class="row">
+        <a class="btn btn-gold" href="#visit">Book a Table</a>
+        <a class="btn btn-line" href="#menu">View Menu</a>
+      </div>
+      <a class="rating-link" href="#reviews">
+        <span class="stars" id="heroStars" role="img"></span>
+        <span id="heroRating"></span>
+      </a>
+    </div>
+
+    <div class="hero-card" role="group" aria-label="Featured dishes">
+      <div class="photo wave hero-photo" id="heroPhoto"></div>
+      <div class="slides" id="slides"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <h2>The menu</h2>
+      <p>Prices in BDT. Sample dishes and sample prices.</p>
+    </div>
+    <div class="tabs" id="tabs" role="group" aria-label="Menu categories"></div>
+    <div class="grid" id="items"></div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="wrap">
+    <div class="about-art wave" aria-hidden="true">藍染</div>
+    <div class="about-text">
+      <h2>About the name</h2>
+      <p>Aizome is the Japanese craft of dyeing cloth with indigo. The cloth is dipped again and again, and the blue deepens with every layer.</p>
+      <p>[Add your own story here: who opened the restaurant, when, and who cooks.]</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-head">
+      <h2>Reviews and ratings</h2>
+      <span class="note">Sample data. Replace with your real guest reviews.</span>
+    </div>
+    <div class="reviews-body">
+      <div class="summary">
+        <div class="avg"><b id="avgNum"></b><span>out of 5</span></div>
+        <span class="stars" id="avgStars" role="img"></span>
+        <span class="count" id="avgCount"></span>
+        <div class="dist" id="dist"></div>
+      </div>
+      <div class="list" id="reviewList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section visit" id="visit">
+  <div class="wrap">
+    <div class="visit-cta">
+      <h2>Book a table</h2>
+      <p>Call or message us with the date, time and number of guests. [Booking page coming next.]</p>
+      <a class="btn btn-gold" href="#top">Book a Table</a>
+    </div>
+    <div class="visit-info">
+      <div><span class="label">Open</span><span>[Sat–Thu, 11:00 am – 11:00 pm]</span></div>
+      <div><span class="label">Address</span><span>[Road no., Area, City]</span></div>
+      <div><span class="label">Phone and WhatsApp</span><span>[+880 1XXX-XXXXXX]</span></div>
+      <div><span class="label">Order online</span><span>[Foodpanda link] · [Pathao Food link]</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>© Aizome 藍染</small>
+    <nav aria-label="Footer">
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   MENU DATA
+   Every dish, price and photo on this page comes from this list.
+   - price: a number in BDT
+   - image: path or link of the photo, e.g. "photos/ramen.jpg". Leave "" for a placeholder.
+   - featured: true puts the dish in the home page slideshow.
+   ========================================================= */
+const MENU = [
+  { cat:'sushi', name:'Salmon Nigiri (2 pc)',  desc:'Hand-pressed rice topped with fresh salmon.',            price:780,  image:'', featured:true },
+  { cat:'sushi', name:'Tuna Nigiri (2 pc)',    desc:'Lean tuna over seasoned sushi rice.',                    price:850,  image:'', featured:false },
+  { cat:'sushi', name:'California Roll (8 pc)',desc:'Crab, avocado and cucumber rolled in sesame.',           price:690,  image:'', featured:false },
+  { cat:'sushi', name:'Dragon Roll (8 pc)',    desc:'Prawn tempura roll topped with avocado and eel sauce.',  price:1150, image:'', featured:true },
+
+  { cat:'ramen', name:'Tonkotsu Ramen',        desc:'Slow-simmered pork broth, chashu, soft egg and nori.',   price:890,  image:'', featured:true },
+  { cat:'ramen', name:'Shoyu Chicken Ramen',   desc:'Clear soy broth with chicken and spring onion.',         price:780,  image:'', featured:false },
+  { cat:'ramen', name:'Miso Vegetable Ramen',  desc:'Miso broth with corn, mushroom and tofu.',               price:720,  image:'', featured:false },
+  { cat:'ramen', name:'Spicy Tantanmen',       desc:'Sesame and chilli broth with minced chicken.',           price:820,  image:'', featured:false },
+
+  { cat:'don',   name:'Chicken Katsu Don',     desc:'Crumbed chicken cutlet and egg over rice in dashi sauce.',price:750, image:'', featured:false },
+  { cat:'don',   name:'Teriyaki Salmon Don',   desc:'Grilled salmon glazed with teriyaki over steamed rice.', price:980,  image:'', featured:true },
+  { cat:'don',   name:'Gyudon',                desc:'Thin-sliced beef simmered with onion over rice.',        price:820,  image:'', featured:false },
+  { cat:'don',   name:'Unagi Don',             desc:'Grilled eel with sweet soy glaze over rice.',            price:1250, image:'', featured:false },
+
+  { cat:'sides', name:'Prawn Tempura (5 pc)',  desc:'Light, crisp batter with tentsuyu dipping sauce.',       price:890,  image:'', featured:false },
+  { cat:'sides', name:'Vegetable Tempura',     desc:'Seasonal vegetables fried in a light batter.',           price:560,  image:'', featured:false },
+  { cat:'sides', name:'Gyoza (6 pc)',          desc:'Pan-fried dumplings with a ponzu dipping sauce.',        price:480,  image:'', featured:false },
+  { cat:'sides', name:'Edamame',               desc:'Steamed soybeans with sea salt.',                        price:320,  image:'', featured:false },
+
+  { cat:'drinks',name:'Matcha Latte',          desc:'Whisked green tea with steamed milk.',                   price:380,  image:'', featured:false },
+  { cat:'drinks',name:'Ramune',                desc:'Japanese marble soda, served cold.',                     price:280,  image:'', featured:false },
+  { cat:'drinks',name:'Mochi Ice Cream (3 pc)',desc:'Soft rice cake around ice cream.',                       price:520,  image:'', featured:false },
+  { cat:'drinks',name:'Dorayaki',              desc:'Two pancakes filled with sweet red bean paste.',         price:350,  image:'', featured:false }
+];
+
+const CATEGORIES = [
+  { id:'sushi',  label:'Sushi and Sashimi' },
+  { id:'ramen',  label:'Ramen' },
+  { id:'don',    label:'Donburi' },
+  { id:'sides',  label:'Tempura and Sides' },
+  { id:'drinks', label:'Drinks and Dessert' }
+];
+
+/* =========================================================
+   REVIEW DATA
+   These are placeholders. Replace them with real guest reviews.
+   The average and the star bars are calculated from this list.
+   ========================================================= */
+const REVIEWS = [
+  { rating:5, name:'[Guest name]', date:'[Month Year]', text:'[Paste a real guest review about the ramen here.]' },
+  { rating:5, name:'[Guest name]', date:'[Month Year]', text:'[Paste a real guest review about the sushi here.]' },
+  { rating:4, name:'[Guest name]', date:'[Month Year]', text:'[Paste a real guest review about the service here.]' }
+];
+
+/* ---------- helpers ---------- */
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => '৳ ' + n.toLocaleString('en-US');
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const stars = (n) => '★'.repeat(n) + '☆'.repeat(5 - n);
+const photo = (m, label) => m.image
+  ? '<img src="' + esc(m.image) + '" alt="' + esc(m.name) + '">'
+  : '<span class="chip">' + label + '</span>';
+
+const state = { cat: CATEGORIES[0].id, slide: 0, paused: false };
+const featured = MENU.filter((m) => m.featured);
+
+/* ---------- hero slideshow ---------- */
+function renderHero() {
+  const m = featured[state.slide % featured.length] || MENU[0];
+  $('heroPhoto').innerHTML =
+    photo(m, 'Photo: ' + esc(m.name)) +
+    '<div class="hero-over"><div class="info">' +
+      '<span class="eyebrow" style="font-size:12px">Chef\'s pick</span>' +
+      '<span class="name">' + esc(m.name) + '</span>' +
+      '<span class="desc">' + esc(m.desc) + '</span>' +
+    '</div><span class="price-badge">' + fmt(m.price) + '</span></div>';
+
+  $('slides').innerHTML = featured.map((f, i) =>
+    '<button type="button" class="slide" data-slide="' + i + '" aria-pressed="' + (i === state.slide) + '">' +
+      '<b>' + esc(f.name) + '</b><span>' + fmt(f.price) + '</span></button>'
+  ).join('') +
+  '<button type="button" class="pause" data-pause="1">' + (state.paused ? 'Play slideshow' : 'Pause slideshow') + '</button>';
+}
+
+/* ---------- menu tabs and items ---------- */
+function renderMenu() {
+  $('tabs').innerHTML = CATEGORIES.map((c) =>
+    '<button type="button" class="tab" data-cat="' + c.id + '" aria-pressed="' + (c.id === state.cat) + '">' + esc(c.label) + '</button>'
+  ).join('');
+
+  $('items').innerHTML = MENU.filter((m) => m.cat === state.cat).map((m) =>
+    '<div class="card">' +
+      '<div class="photo wave">' + photo(m, 'Photo') + '</div>' +
+      '<div class="body"><h3>' + esc(m.name) + '</h3><p class="d">' + esc(m.desc) + '</p>' +
+      '<span class="p">' + fmt(m.price) + '</span></div>' +
+    '</div>'
+  ).join('');
+}
+
+/* ---------- reviews and ratings ---------- */
+function renderReviews() {
+  const total = REVIEWS.length || 1;
+  const avg = REVIEWS.reduce((s, r) => s + r.rating, 0) / total;
+  const avgText = avg.toFixed(1);
+  const rounded = Math.round(avg);
+
+  $('avgNum').textContent = avgText;
+  $('avgCount').textContent = 'Based on ' + REVIEWS.length + ' reviews';
+  $('heroRating').textContent = avgText + ' average rating · Read reviews';
+  [$('avgStars'), $('heroStars')].forEach((el) => {
+    el.textContent = stars(rounded);
+    el.setAttribute('aria-label', avgText + ' out of 5 stars');
+  });
+
+  $('dist').innerHTML = [5, 4, 3, 2, 1].map((n) => {
+    const c = REVIEWS.filter((r) => r.rating === n).length;
+    return '<div><span class="n">' + n + '</span><span class="track"><i style="width:' + Math.round(c / total * 100) + '%"></i></span><span class="c">' + c + '</span></div>';
+  }).join('');
+
+  $('reviewList').innerHTML = REVIEWS.map((r) =>
+    '<div class="review">' +
+      '<span class="stars" role="img" aria-label="' + r.rating + ' out of 5 stars">' + stars(r.rating) + '</span>' +
+      '<p>' + esc(r.text) + '</p>' +
+      '<div class="who"><b>' + esc(r.name) + '</b><span>' + esc(r.date) + '</span></div>' +
+    '</div>'
+  ).join('');
+}
+
+/* ---------- clicks ---------- */
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('button');
+  if (!t) return;
+  if (t.dataset.slide !== undefined) { state.slide = Number(t.dataset.slide); renderHero(); }
+  else if (t.dataset.pause) { state.paused = !state.paused; renderHero(); }
+  else if (t.dataset.cat) { state.cat = t.dataset.cat; renderMenu(); }
+});
+
+/* ---------- start ---------- */
+renderHero();
+renderMenu();
+renderReviews();
+
+const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduceMotion) {
+  state.paused = true;
+  renderHero();
+} else {
+  setInterval(() => {
+    if (state.paused) return;
+    state.slide = (state.slide + 1) % featured.length;
+    renderHero();
+  }, 5000);
+}
+</script>
+</body>
+</html>
